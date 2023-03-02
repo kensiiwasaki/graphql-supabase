@@ -3,20 +3,26 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "compile": "graphql-codegen --require dotenv/config --config codegen.ts dotenv_config_path=.env.local"
   },
   "dependencies": {
+    "@apollo/client": "^3.7.9",
+    "@supabase/supabase-js": "^2.10.0",
+    "graphql": "^16.6.0",
     "next": "latest",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^3.2.1",
+    "@graphql-codegen/client-preset": "^2.1.0",
     "@types/node": "18.11.3",
     "@types/react": "18.0.21",
     "@types/react-dom": "18.0.6",
     "autoprefixer": "^10.4.12",
     "postcss": "^8.4.18",
     "tailwindcss": "^3.2.4",
-    "typescript": "4.9.4"
+    "typescript": "^4.9.4"
   }
 }
