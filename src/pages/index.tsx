@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 import { supabase } from '../constants'
 import { LoginForm } from '../components/LoginFrom'
 import { TodoList } from '../components/TodoList'
+import { AppHeader } from '../components/AppHeader'
 
 const Home: NextPage = () => {
   const [session, setSession] = useState<Session | null>(null)
@@ -44,25 +45,3 @@ const Home: NextPage = () => {
 }
 
 export default Home
-
-/** 上の`Home`をスッキリさせるためだけに抜き出したヘッダー */
-const AppHeader = ({ isSignedIn }: { isSignedIn: boolean }) => {
-  console.log({ isSignedIn })
-  return (
-    <header className="bg-black shadow shadow-green-400 px-4">
-      <div className="flex max-w-4xl mx-auto items-center h-16">
-        <div className=" text-white text-lg flex-grow">
-          Supabase pg_graphql Example
-        </div>
-        {isSignedIn && (
-          <button
-            className="py-1 px-2 text-white border border-white rounded"
-            onClick={() => supabase.auth.signOut()}
-          >
-            Sign Out
-          </button>
-        )}
-      </div>
-    </header>
-  )
-}
